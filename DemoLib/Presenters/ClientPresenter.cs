@@ -28,6 +28,7 @@ namespace DemoLib.Presenters
                 }
             }
 
+
             if (model_ is MemoryClientsModel memoryModel)
             {
                 memoryModel.NotifyClientsUpdated();
