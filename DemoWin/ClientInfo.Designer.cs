@@ -42,6 +42,8 @@
             this.Save = new System.Windows.Forms.Button();
             this.To_Return = new System.Windows.Forms.Button();
             this.Exit = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // CompanyNameTextBox
@@ -82,7 +84,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 108);
+            this.label5.Location = new System.Drawing.Point(13, 111);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(101, 13);
             this.label5.TabIndex = 6;
@@ -91,7 +93,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 139);
+            this.label6.Location = new System.Drawing.Point(13, 142);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 13);
             this.label6.TabIndex = 7;
@@ -120,6 +122,7 @@
             // 
             // DiscountTextBox
             // 
+            this.DiscountTextBox.Enabled = false;
             this.DiscountTextBox.Location = new System.Drawing.Point(155, 139);
             this.DiscountTextBox.Name = "DiscountTextBox";
             this.DiscountTextBox.Size = new System.Drawing.Size(100, 20);
@@ -127,7 +130,7 @@
             // 
             // OpenEditForm
             // 
-            this.OpenEditForm.Location = new System.Drawing.Point(330, 11);
+            this.OpenEditForm.Location = new System.Drawing.Point(16, 178);
             this.OpenEditForm.Name = "OpenEditForm";
             this.OpenEditForm.Size = new System.Drawing.Size(101, 24);
             this.OpenEditForm.TabIndex = 12;
@@ -137,7 +140,7 @@
             // 
             // Save
             // 
-            this.Save.Location = new System.Drawing.Point(344, 41);
+            this.Save.Location = new System.Drawing.Point(123, 178);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(75, 23);
             this.Save.TabIndex = 13;
@@ -147,7 +150,7 @@
             // 
             // To_Return
             // 
-            this.To_Return.Location = new System.Drawing.Point(619, 415);
+            this.To_Return.Location = new System.Drawing.Point(12, 415);
             this.To_Return.Name = "To_Return";
             this.To_Return.Size = new System.Drawing.Size(75, 23);
             this.To_Return.TabIndex = 14;
@@ -157,7 +160,7 @@
             // 
             // Exit
             // 
-            this.Exit.Location = new System.Drawing.Point(712, 415);
+            this.Exit.Location = new System.Drawing.Point(93, 415);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(75, 23);
             this.Exit.TabIndex = 15;
@@ -165,11 +168,20 @@
             this.Exit.UseVisualStyleBackColor = true;
             this.Exit.Click += new System.EventHandler(this.Exit_Click_1);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(407, 13);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(381, 425);
+            this.dataGridView1.TabIndex = 16;
+            // 
             // ClientInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.To_Return);
             this.Controls.Add(this.Save);
@@ -185,6 +197,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CompanyNameTextBox);
             this.Name = "ClientInfo";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,5 +219,6 @@
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.Button To_Return;
         private System.Windows.Forms.Button Exit;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

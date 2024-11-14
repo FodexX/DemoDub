@@ -12,12 +12,10 @@
 
         public int Rating { get; set; }
 
-        public int Discount {  get; set; }
+        public int OrderCount { get; set; } 
 
-        public decimal CalculateDiscountedPrice(decimal originalPrice)
-        {
-            decimal discountAmount = (originalPrice * Discount) / 100;
-            return originalPrice - discountAmount;
-        }
+        public int OrderSum { get; set; }
+
+        public int Discount { get; set; } 
     }
 }
