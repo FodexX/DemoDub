@@ -1,4 +1,4 @@
-﻿// DemoLib.Presenters/ClientPresenter.cs using DemoLib.Models; using DemoLib.Views; using System.Collections.Generic;  namespace DemoLib.Presenters {     public class ClientPresenter     {         private IClientsModel model_;         private List<IClientView> views_ = new List<IClientView>();          public ClientPresenter(IClientsModel model)         {             model_ = model;             model_.UpdatedClients += Model__UpdatedClients;         }          public void UpdateClient(Client updatedClient)
+﻿// DemoLib.Presenters/ClientPresenter.cs using DemoLib.Models; using DemoLib.Views; using System; using System.Collections.Generic;  namespace DemoLib.Presenters {     public class ClientPresenter     {         private IClientsModel model_;         private List<IClientView> views_ = new List<IClientView>();          public ClientPresenter(IClientsModel model)         {             model_ = model;             model_.UpdatedClients += Model__UpdatedClients;         }          public void UpdateClient(Client updatedClient)
         {
             var clients = model_.GetClients();
             bool clientFound = false;

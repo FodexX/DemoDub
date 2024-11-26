@@ -6,7 +6,7 @@ namespace DemoLib.Models
 {
     public class MySQLClientsModel : IClientsModel
     {
-        string connectionString = "Server=localhost;User ID=root;Password=vertrigp;Database=ClientBase\r\n";
+        string connectionString = "Server=localhost;User ID=root;Password=vertrigo;Database=ClientBase\r\n";
 
         public event Action UpdatedClients;
 
@@ -67,11 +67,6 @@ namespace DemoLib.Models
             }
 
             return count;
-        }
-
-        public void NotifyClientsUpdated()
-        {
-            UpdatedClients?.Invoke();
         }
     }
 }
