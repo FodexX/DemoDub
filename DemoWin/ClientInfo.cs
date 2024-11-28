@@ -1,4 +1,13 @@
-﻿using DemoLib; using DemoLib.Models; using DemoLib.Presenters; using DemoUIComponents; using MySqlX.XDevAPI; using System; using System.Windows.Forms;  namespace Demo {     public partial class ClientInfo : Form     {         DemoLib.Client client_ = new DemoLib.Client();         public ClientPresenter presenter_;         public ClientInfo(ClientPresenter presenter)         {             InitializeComponent();             presenter_ = presenter;             Save.Enabled = false;         }
+﻿using DemoLib; using DemoLib.Models; using DemoLib.Presenters; using DemoUIComponents; using MySqlX.XDevAPI; using System; using System.Data; using System.Windows.Forms;  namespace Demo {     public partial class ClientInfo : Form     {         DemoLib.Client client_ = new DemoLib.Client();         public ClientPresenter presenter_;         public ClientInfo(ClientPresenter presenter)         {             InitializeComponent();             LoadProducts();             presenter_ = presenter;             Save.Enabled = false;         }
+
+        private void LoadProducts()
+        {
+            MySQLClientsModel model = new MySQLClientsModel();
+            dataGridView1.DataSource = model.GetProduct();
+        }
+
+
+
 
         public void SetClient(DemoLib.Client client)
         {
@@ -8,6 +17,9 @@
             PhoneNumberTextBox.Text = client.PhoneNumber;
             RatingTextBox.Text = client.Rating.ToString();
             DiscountTextBox.Text = client.Discount.ToString();
+
+
+
         }          private void To_Return_Click(object sender, EventArgs e)         {             this.Hide();             ClientControl CL = new ClientControl();             CL.Show();         }          private void Exit_Click_1(object sender, EventArgs e)         {             Application.Exit();         }          private void OpenEditForm_Click(object sender, EventArgs e)         {             if (string.IsNullOrWhiteSpace(CompanyNameTextBox.Text) ||                 string.IsNullOrWhiteSpace(NameClients.Text))             {                 MessageBox.Show("Поля не могут быть пустыми!");                 Save.Enabled = false;             }             else             {                 Save.Enabled = true;             }         }
 
         private void Save_Click_1(object sender, EventArgs e)
@@ -46,26 +58,4 @@
             }
             DiscountTextBox.Text = client_.Discount.ToString(); // обновление отображения скидки
         }
-
-        public void UpdateDiscountBasedOnTotalSum(decimal totalSum)
-        {
-            int discount;
-
-            // Определяем скидку в зависимости от суммы
-            if (totalSum < 1000)
-            {
-                discount = 10;
-            }
-            else if (totalSum >= 1000 && totalSum < 5000)
-            {
-                discount = 20;
-            }
-            else
-            {
-                discount = 50;
-            }
-
-            DiscountTextBox.Text = $"{discount}%";
-        }
-
     } }

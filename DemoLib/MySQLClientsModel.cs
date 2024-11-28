@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace DemoLib.Models
 {
@@ -10,7 +11,7 @@ namespace DemoLib.Models
 
         public event Action UpdatedClients;
 
-        public List<Client> GetClients() 
+        public List<Client> GetClients()
         {
             List<Client> clients = new List<Client>();
 
@@ -67,6 +68,30 @@ namespace DemoLib.Models
             }
 
             return count;
+        }
+
+        public DataTable GetProducts()
+        {
+            DataTable productsTable = new DataTable();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT ID, NameProduct, PriceProduct, Count, SumProduct FROM Products";
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection))
+                    {
+                        adapter.Fill(productsTable);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
+            }
+
+            return productsTable;
         }
     }
 }
